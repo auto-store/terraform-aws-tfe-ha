@@ -47,3 +47,7 @@ variable "TTL" {
   description = "Hours after which resource expires, used by reaper. Do not use any unit. -1 is infinite."
   default     = "240"
 }
+
+variable "region" {
+  default = "eu-west-2"
+}

@@ -1,6 +1,6 @@
-# provider "aws" {
-#   region = "eu-west-1"
-# }
+provider "aws" {
+  region = "eu-west-2"
+}
 #
 # resource "aws_vpc" "demo-tfe" {
 #   cidr_block           = "${var.vpc_cidr_block}"
@@ -71,22 +71,22 @@
 #   name = "${var.domain}."
 # }
 #
-# resource "aws_acm_certificate" "cert" {
-#   domain_name       = "*.${var.domain}"
-#   validation_method = "DNS"
-#
-#   tags = {
-#     Name           = "${var.owner}-tfe"
-#     owner          = "${var.owner}"
-#     created-by     = "${var.owner}"
-#     sleep-at-night = "${var.sleep-at-night}"
-#     TTL            = "${var.TTL}"
-#   }
-#
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-# }
+resource "aws_acm_certificate" "cert" {
+  domain_name       = "*.${var.domain}"
+  validation_method = "DNS"
+
+  tags = {
+    Name           = "${var.owner}-tfe"
+    owner          = "${var.owner}"
+    created-by     = "${var.owner}"
+    sleep-at-night = "${var.sleep-at-night}"
+    TTL            = "${var.TTL}"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
 #
 # resource "aws_route53_record" "validation_record" {
 #   name            = "${aws_acm_certificate.cert.domain_validation_options.0.resource_record_name}"
