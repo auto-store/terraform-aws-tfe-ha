@@ -1,6 +1,6 @@
-domain="ric.aws.hashidemos.io"
+domain="demo.aws.willfarley.hashidemos.io"
 hostname="workshop"
-owner="ricardo"
-prefix="rictfe"
-allow_list=["88.97.2.109/32"]
+owner="willfarley"
+prefix="willtfe"
+allow_list=["81.156.23.249/32"]
 license_file="hashicorp-internal---se.rli"
